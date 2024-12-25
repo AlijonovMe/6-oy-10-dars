@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Gul turi: {{ flower.type.name }}</h2>
+
+    <div class="card shadow-sm border-light">
+        <div class="card-body">
+            <h5 class="card-title">Gul haqida batafsil ma'lumot!</h5>
+            <div class="position-absolute top-0 end-0 p-2">
+                <a href="{% url 'updateFlower' flower.id %}" class="text-dark me-2">
+                    <i class="fas fa-pen"></i>
+                </a>
+                <a href="{% url 'deleteFlower' flower.id %}" class="text-dark">
+                    <i class="far fa-trash-can"></i>
+                </a>
+            </div>
+            <br>
+            <p class="card-text"><strong>Nomi:</strong> {{ flower.name }}</p>
+            <p class="card-text"><strong>Narxi:</strong> {{ flower.price }} UZS</p>
+            <p class="card-text"><strong>Soni:</strong> {{ flower.count }} ta</p>
+            <p class="card-text"><strong>Tavsifi:</strong> {{ flower.description|linebreaks }}</p>
+        </div>
+    </div>
+
+    <a href="{% url 'home' %}" class="btn btn-secondary mt-4">Orqaga qaytish</a>
+</div>
+
+{% endblock main %}
